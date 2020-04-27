@@ -1,7 +1,7 @@
 package models
 
-// Student model
-type Student struct {
+// Teacher model
+type Teacher struct {
 	ID     string `json:"id"`
 	Name   string `json:"name"`
 	Gender string `json:"gender"`
