@@ -18,6 +18,27 @@ func NewStudentController() *StudentController {
 	return &StudentController{}
 }
 
+// GetStudents GET
+func (c StudentController) GetStudents(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
+
+	students := models.Student{
+		ID:     p.ByName("id"),
+		Name:   "Sulaiman Ahmed",
+		Gender: "Male ",
+		Age:    21,
+	}
+
+	uj, err := json.Marshal(students)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprintf(w, "%s\n", uj)
+
+}
+
 // GetStudent GET
 func (c StudentController) GetStudent(w http.ResponseWriter, r *http.Request, p httprouter.Params) {
 

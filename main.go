@@ -16,6 +16,7 @@ func main() {
 
 	r.GET("/", homeController.Index)
 
+	r.GET("/student", studentController.GetStudents)
 	r.GET("/student/:id", studentController.GetStudent)
 	r.POST("/student", studentController.CreateStudent)
 	r.DELETE("/student/:id", studentController.DeleteStudent)
